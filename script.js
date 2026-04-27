@@ -177,7 +177,7 @@ function getBestMove() {
     .filter((value) => value !== null);
 
   let bestScore = -Infinity;
-  let bestMove = available[0];
+  let bestMoves = [];
 
   for (const index of available) {
     board[index] = "O";
@@ -186,11 +186,13 @@ function getBestMove() {
 
     if (score > bestScore) {
       bestScore = score;
-      bestMove = index;
+      bestMoves = [index];
+    } else if (score === bestScore) {
+      bestMoves.push(index);
     }
   }
 
-  return bestMove;
+  return bestMoves[Math.floor(Math.random() * bestMoves.length)];
 }
 
 function minimax(state, isMaximizing) {
