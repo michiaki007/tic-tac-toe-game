@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>井字大對決!</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="play-area" aria-labelledby="game-title">
+        <div class="topbar">
+          <div>
+            <h1 id="game-title">井字大對決!</h1>
+          </div>
+          <button class="ghost-button" id="resetScores" type="button">重設分數</button>
+        </div>
+
+        <div class="mode-row" role="group" aria-label="選擇模式">
+          <button class="mode-button active" type="button" data-mode="ai">人機對戰</button>
+          <button class="mode-button" type="button" data-mode="human">兩個用家</button>
+        </div>
+
+        <div class="players" aria-label="玩家分數">
+          <article class="player-score active" data-player="X">
+            <img src="boy_head.png" alt="Damien X">
+            <div>
+              <span class="team-tag">Team X</span>
+              <span class="player-label">X Damien</span>
+              <strong id="scoreX">0</strong>
+            </div>
+          </article>
+          <article class="player-score" data-player="O">
+            <img src="girl_head.png" alt="Anya O">
+            <div>
+              <span class="team-tag">Team O</span>
+              <span class="player-label">O Anya</span>
+              <strong id="scoreO">0</strong>
+            </div>
+          </article>
+          <article class="player-score draw-score">
+            <span class="draw-mark">=</span>
+            <div>
+              <span class="team-tag">Result</span>
+              <span class="player-label">平手</span>
+              <strong id="scoreDraw">0</strong>
+            </div>
+          </article>
+        </div>
+
+        <div class="winner-banner" id="winnerBanner" aria-hidden="true"></div>
+        <p class="status" id="status" role="status" aria-live="polite">Damien先行</p>
+
+        <div class="board" id="board" aria-label="井字棋棋盤">
+          <button class="cell" type="button" aria-label="第 1 格" data-index="0"></button>
+          <button class="cell" type="button" aria-label="第 2 格" data-index="1"></button>
+          <button class="cell" type="button" aria-label="第 3 格" data-index="2"></button>
+          <button class="cell" type="button" aria-label="第 4 格" data-index="3"></button>
+          <button class="cell" type="button" aria-label="第 5 格" data-index="4"></button>
+          <button class="cell" type="button" aria-label="第 6 格" data-index="5"></button>
+          <button class="cell" type="button" aria-label="第 7 格" data-index="6"></button>
+          <button class="cell" type="button" aria-label="第 8 格" data-index="7"></button>
+          <button class="cell" type="button" aria-label="第 9 格" data-index="8"></button>
+        </div>
+
+        <div class="actions">
+          <button class="primary-button" id="newRound" type="button">新一局</button>
+        </div>
+      </section>
+    </main>
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
